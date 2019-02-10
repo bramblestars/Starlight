@@ -71,4 +71,4 @@ public class PlatformController : MonoBehaviour
         transform.localScale = theScale;
     }
 }
-}
+
