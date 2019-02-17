@@ -7,7 +7,7 @@ public class CatController : MonoBehaviour
     [HideInInspector] public bool jump;
     public float moveForce = 365f;
     public float maxSpeed = 5f;
-    public float jumpForce = 350;
+    public float jumpForce = 350f;
     public string groundTag = "Ground";
 
     [SerializeField]
