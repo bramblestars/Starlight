@@ -1,20 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
 
-public class PlatformController : MonoBehaviour
+public class CatController : MonoBehaviour
 {
 
     [HideInInspector] public bool facingRight = true;
-    [HideInInspector] public bool jump = false;
+    [HideInInspector] public bool jump;
     public float moveForce = 365f;
     public float maxSpeed = 5f;
-    public float jumpForce = 1000f;
-    public Transform groundCheck;
+    public float jumpForce = 350f;
+    public string groundTag = "Ground";
 
-
-    private bool grounded = false;
+    [SerializeField]
+    private string inputController;
+    private bool grounded;
     private Animator anim;
     private Rigidbody2D rb2d;
 
@@ -24,22 +22,18 @@ public class PlatformController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        rb2d.freezeRotation = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-
-        if (Input.GetButtonDown("Jump") && grounded)
-        {
-            jump = true;
-        }
+        jump |= (Input.GetButtonDown("Jump") && grounded);
     }
 
     void FixedUpdate()
     {
-        float h = Input.GetAxis("Horizontal");
+        float h = Input.GetAxis(inputController);
 
         anim.SetFloat("Speed", Mathf.Abs(h));
 
@@ -69,6 +63,16 @@ public class PlatformController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        grounded |= collision.collider.gameObject.CompareTag(groundTag);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        grounded &= !collision.collider.gameObject.CompareTag(groundTag);
     }
 }
 
