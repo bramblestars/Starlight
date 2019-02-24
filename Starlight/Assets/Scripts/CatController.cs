@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CatController : MonoBehaviour
 {
@@ -37,6 +38,11 @@ public class CatController : MonoBehaviour
     void Update()
     {
         jump |= (Input.GetButtonDown("Jump") && grounded);
+        if (Input.GetButtonDown("Cancel"))
+            {
+             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+
     }
 
     void FixedUpdate()

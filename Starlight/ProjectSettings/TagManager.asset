@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Player2
+  - GroundFish
   layers:
   - Default
   - TransparentFX
