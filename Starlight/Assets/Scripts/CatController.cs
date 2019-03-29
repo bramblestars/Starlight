@@ -57,6 +57,15 @@ public class CatController : MonoBehaviour
         if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
             rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
 
+        if (rb2d.velocity.y < 0)
+        {
+            Physics2D.gravity = new Vector2(0, -11.8F);
+        }
+        else
+        {
+            Physics2D.gravity = new Vector2(0, -8F);
+        
+        }
         if (h > 0 && !facingRight)
             Flip();
         else if (h < 0 && facingRight)
@@ -89,6 +98,25 @@ public class CatController : MonoBehaviour
     {
         grounded &= !collision.collider.gameObject.CompareTag(groundTag);
 
+    }
+    private void OnTriggerStay2D(Collider2D Collider)
+    {
+
+        if (Collider.gameObject.name == "cloud")
+        {
+            transform.parent = Collider.transform;
+            Debug.Log("HERE");
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D Collider)
+    {
+        if (Collider.gameObject.name == "cloud")
+        {
+            transform.parent = null;
+
+        }
     }
 }
 

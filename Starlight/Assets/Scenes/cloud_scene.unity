@@ -215,18 +215,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.044942558, y: -0.000003695488}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.07, y: 4.72}
+    oldSize: {x: 1.83, y: 0.8}
     newSize: {x: 14.07, y: 4.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.07, y: 4.72}
+  m_Size: {x: 1.7603556, y: 0.6766877}
   m_EdgeRadius: 0
 --- !u!212 &47455281
 SpriteRenderer:
@@ -265,7 +265,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cc9c6d01a6116cb4db68c5c16e5f8505, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a41c9907569e0424683a60d1d8110cd0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -285,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 47455279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 38.9, y: -2.3, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.67, z: 1}
+  m_LocalScale: {x: 3, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -760,8 +760,9 @@ GameObject:
   - component: {fileID: 281184823}
   - component: {fileID: 281184822}
   - component: {fileID: 281184821}
+  - component: {fileID: 281184824}
   m_Layer: 0
-  m_Name: cloud (4)
+  m_Name: cloud
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -780,18 +781,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.00000011920929, y: -0.13477695}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.07, y: 4.72}
+    oldSize: {x: 1.64, y: 0.9}
     newSize: {x: 14.07, y: 4.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.07, y: 4.72}
+  m_Size: {x: 1.6704724, y: 0.946234}
   m_EdgeRadius: 0
 --- !u!212 &281184822
 SpriteRenderer:
@@ -830,7 +831,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cc9c6d01a6116cb4db68c5c16e5f8505, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5be47fa81a72c426288c6ec5b804dcd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -850,11 +851,34 @@ Transform:
   m_GameObject: {fileID: 281184820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 26.3, y: -6, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.67, z: 1}
+  m_LocalScale: {x: 3, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281184824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281184820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0b6915f06cc4a5ba94c27ac7f67948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: vanish
+  parameters:
+  - 0
+  - 0
+  - 1
+  - 0
+  cloudListX: []
+  cloudListY: []
+  vanishing: []
+  bouncing: []
+  act: 1
 --- !u!1 &451315357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1135,7 @@ GameObject:
   - component: {fileID: 708121073}
   - component: {fileID: 708121072}
   - component: {fileID: 708121074}
+  - component: {fileID: 708121071}
   m_Layer: 0
   m_Name: cloud
   m_TagString: Ground
@@ -1118,6 +1143,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &708121071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708121070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0b6915f06cc4a5ba94c27ac7f67948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: movingY
+  parameters:
+  - -10
+  - 10
+  - -1
+  - 1
+  cloudListX: []
+  cloudListY: []
+  vanishing: []
+  bouncing: []
+  act: 1
 --- !u!212 &708121072
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1155,7 +1203,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cc9c6d01a6116cb4db68c5c16e5f8505, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5be47fa81a72c426288c6ec5b804dcd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1175,7 +1223,7 @@ Transform:
   m_GameObject: {fileID: 708121070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -34.63, y: 0.9, z: 0}
-  m_LocalScale: {x: 0.5994, y: 0.5785, z: 1}
+  m_LocalScale: {x: 3, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1193,18 +1241,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.000039100647, y: -0.69894415}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.07, y: 4.72}
+    oldSize: {x: 1.64, y: 0.9}
     newSize: {x: 14.07, y: 4.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.07, y: 4.72}
+  m_Size: {x: 2.3776627, y: 2.3902264}
   m_EdgeRadius: 0
 --- !u!1 &771547880
 GameObject:
@@ -3234,8 +3282,9 @@ GameObject:
   - component: {fileID: 1771978583}
   - component: {fileID: 1771978582}
   - component: {fileID: 1771978581}
+  - component: {fileID: 1771978584}
   m_Layer: 0
-  m_Name: cloud (3)
+  m_Name: cloud
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3254,18 +3303,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06738806, y: 0.0898495}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.07, y: 4.72}
+    oldSize: {x: 2.81, y: 0.97}
     newSize: {x: 14.07, y: 4.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.07, y: 4.72}
+  m_Size: {x: 3.153082, y: 0.76652795}
   m_EdgeRadius: 0
 --- !u!212 &1771978582
 SpriteRenderer:
@@ -3304,7 +3353,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cc9c6d01a6116cb4db68c5c16e5f8505, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79d59871bddce4aab826f756ed5d165b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3324,11 +3373,34 @@ Transform:
   m_GameObject: {fileID: 1771978580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.9, y: -9.6, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.67, z: 1}
+  m_LocalScale: {x: 2, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1771978584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771978580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0b6915f06cc4a5ba94c27ac7f67948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: movingY
+  parameters:
+  - -9.6
+  - 0
+  - -1
+  - 0.5
+  cloudListX: []
+  cloudListY: []
+  vanishing: []
+  bouncing: []
+  act: 1
 --- !u!1 &1796164312
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,8 +4054,10 @@ GameObject:
   - component: {fileID: 2020331208}
   - component: {fileID: 2020331207}
   - component: {fileID: 2020331206}
+  - component: {fileID: 2020331209}
+  - component: {fileID: 2020331210}
   m_Layer: 0
-  m_Name: cloud (2)
+  m_Name: cloud
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4002,18 +4076,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.13475394, y: -0.0000016242266}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.07, y: 4.72}
+    oldSize: {x: 2.81, y: 0.97}
     newSize: {x: 14.07, y: 4.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.07, y: 4.72}
+  m_Size: {x: 2.7487063, y: 0.9462298}
   m_EdgeRadius: 0
 --- !u!212 &2020331207
 SpriteRenderer:
@@ -4052,7 +4126,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cc9c6d01a6116cb4db68c5c16e5f8505, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79d59871bddce4aab826f756ed5d165b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4072,11 +4146,60 @@ Transform:
   m_GameObject: {fileID: 2020331205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.3, y: -10, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.67, z: 1}
+  m_LocalScale: {x: 2, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2020331209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020331205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0b6915f06cc4a5ba94c27ac7f67948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: movingX
+  parameters:
+  - -13
+  - 13
+  - 1
+  - 0.1
+  cloudListX: []
+  cloudListY: []
+  vanishing: []
+  bouncing: []
+  act: 1
+--- !u!61 &2020331210
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020331205}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.81, y: 0.97}
+    newSize: {x: 14.07, y: 4.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.81, y: 0.97}
+  m_EdgeRadius: 0
 --- !u!1 &2060351699
 GameObject:
   m_ObjectHideFlags: 0
@@ -4088,8 +4211,9 @@ GameObject:
   - component: {fileID: 2060351702}
   - component: {fileID: 2060351701}
   - component: {fileID: 2060351700}
+  - component: {fileID: 2060351703}
   m_Layer: 0
-  m_Name: cloud (1)
+  m_Name: cloud
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4108,18 +4232,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0053171813, y: -0.048488796}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.07, y: 4.72}
+    oldSize: {x: 1.83, y: 0.8}
     newSize: {x: 14.07, y: 4.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.07, y: 4.72}
+  m_Size: {x: 1.4080431, y: 0.86350846}
   m_EdgeRadius: 0
 --- !u!212 &2060351701
 SpriteRenderer:
@@ -4158,7 +4282,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cc9c6d01a6116cb4db68c5c16e5f8505, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a41c9907569e0424683a60d1d8110cd0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4178,8 +4302,31 @@ Transform:
   m_GameObject: {fileID: 2060351699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.8, y: -6.5, z: 0}
-  m_LocalScale: {x: 0.658, y: 0.6048, z: 1}
+  m_LocalScale: {x: 4, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2060351703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060351699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0b6915f06cc4a5ba94c27ac7f67948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: vanish
+  parameters:
+  - 0
+  - 0
+  - 0
+  - 0
+  cloudListX: []
+  cloudListY: []
+  vanishing: []
+  bouncing: []
+  act: 1

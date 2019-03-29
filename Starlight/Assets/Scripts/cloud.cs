@@ -42,13 +42,13 @@ public class cloud : MonoBehaviour
                             break;
                         case 2: cL = vanishing;
                             break;
-                        case 3: cL = bouncing;
+                        default: cL = bouncing;
                             break;
                     }
 
                     for (int counter = 0; counter < cL.Length; counter++)
                     {
-                        cL[counter].GetComponent<cloud>().act = !cl.GetComponent<cloud>().act;
+                        cL[counter].GetComponent<cloud>().act = !cL[counter].GetComponent<cloud>().act;
                     }
                 }
                 break;
@@ -72,7 +72,7 @@ public class cloud : MonoBehaviour
             {
                 case "movingX":
                     {
-                        Debug.Log("Hi");
+
                         float maxX = parameters[1];
                         float minX = parameters[0];
                         float direction = parameters[2];
@@ -126,11 +126,13 @@ public class cloud : MonoBehaviour
                         {
                             if (v < 1)
                             {
-                                this.gameObject.GetComponent<Renderer>().enabled = false; 
+                                this.gameObject.GetComponent<Renderer>().enabled = false;
+                                this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                             }
                             else
                             {
                                 this.gameObject.GetComponent<Renderer>().enabled = true;
+                                this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
                             }
                             flipDirection();
                             parameters[0] = -1;
