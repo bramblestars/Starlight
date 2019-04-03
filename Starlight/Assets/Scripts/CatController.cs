@@ -99,20 +99,44 @@ public class CatController : MonoBehaviour
         grounded &= !collision.collider.gameObject.CompareTag(groundTag);
 
     }
+
+    private void OnTriggerEnter2D(Collider2D Collider)
+    {
+        if (Collider.gameObject.name.Contains("cloud"))
+        {
+            cloud cloudScript = Collider.gameObject.GetComponent<cloud>();
+            Debug.Log(cloudScript.type);
+
+            if (cloudScript.type== "button")
+            {
+                Debug.Log("Yes! Good!");
+                cloudScript.act = true;
+                cloudScript.interact();
+            }
+            else if (cloudScript.type == "bounce")
+            { 
+
+            /*if (cloudScript.act)
+                {
+                    rb2d.AddForce(new Vector2(0f, jumpForce));
+                    Collider.gameObject.GetComponent<BoxCollider2D>().GetComponent<PhysicsMaterial2D>().bounciness = 1;
+                }*/
+            }
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D Collider)
     {
-
-        if (Collider.gameObject.name == "cloud")
+        Debug.Log("In");
+        if (Collider.gameObject.name.Contains("cloud"))
         {
             transform.parent = Collider.transform;
-            Debug.Log("HERE");
-
         }
     }
 
     private void OnTriggerExit2D(Collider2D Collider)
     {
-        if (Collider.gameObject.name == "cloud")
+        if (Collider.gameObject.name.Contains("cloud"))
         {
             transform.parent = null;
 

@@ -12,13 +12,32 @@ public class cloud : MonoBehaviour
     public GameObject[] cloudListY;
     public GameObject[] vanishing;
     public GameObject[] bouncing;
-    public bool act = true;
+    public bool act = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        if (type == "movingX")
+        {
+            float currX = transform.position.x;
+            float furthDist = parameters[4];
+            parameters[0] = currX - furthDist;
+            parameters[1] = currX + furthDist;
+        }
+        else if (type == "movingY")
+        {
+            float currY = transform.position.y;
+            float furthDist = parameters[4];
+            parameters[0] = currY - furthDist;
+            parameters[1] = currY + furthDist;
 
+        }
+        else if (type == "vanish")
+        {
+            this.gameObject.GetComponent<Renderer>().enabled = false;
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
     void flipDirection()
     {
@@ -26,8 +45,9 @@ public class cloud : MonoBehaviour
             parameters[2] = 1;
         else parameters[2] = -1;
     }
-    void interact()
+    public void interact()
     {
+        Debug.Log("interacted");
         switch(type)
         {
             case "button":
@@ -36,20 +56,108 @@ public class cloud : MonoBehaviour
                     GameObject[] cL;
                     switch (x)
                     {
-                        case 0: cL = cloudListX;
+                        case 0:
+                            {
+                                cL = cloudListX;
+                                for (int counter = 0; counter < cL.Length; counter++)
+                                {
+                                    cL[counter].GetComponent<cloud>().act = !cL[counter].GetComponent<cloud>().act;
+
+                                    if (cL[counter].GetComponent<cloud>().act)
+                                    {
+                                        Debug.Log("Hi");
+                                       
+                                        cL[counter].gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
+                                        Debug.Log(cL[counter].gameObject.GetComponent<SpriteRenderer>().color);
+                                    }
+                                    else
+                                    {
+                                      
+                                        cL[counter].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                                    }
+
+                                }
+                            }
                             break;
-                        case 1: cL = cloudListY;
+                        case 1:
+                            {
+                                cL = cloudListY;
+                                for (int counter = 0; counter < cL.Length; counter++)
+                                {
+
+
+                                    cL[counter].GetComponent<cloud>().act = !cL[counter].GetComponent<cloud>().act;
+
+                                    if (cL[counter].GetComponent<cloud>().act)
+                                    {
+                                        Debug.Log("Hi");
+
+                                        cL[counter].gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+                                        Debug.Log(cL[counter].gameObject.GetComponent<SpriteRenderer>().color);
+                                    }
+                                    else
+                                    {
+
+                                        cL[counter].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                                    }
+
+
+                                }
+                            }
                             break;
-                        case 2: cL = vanishing;
+                        case 2:
+                            {
+                                cL = vanishing;
+                                for (int counter = 0; counter < cL.Length; counter++)
+                                {
+
+
+                                    cL[counter].GetComponent<cloud>().act = !cL[counter].GetComponent<cloud>().act;
+
+                                    if (cL[counter].GetComponent<cloud>().act)
+                                    {
+                                        Debug.Log("Hi");
+                                        cL[counter].gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+                                        Debug.Log(cL[counter].gameObject.GetComponent<SpriteRenderer>().color);
+                                    }
+                                    else
+                                    {
+                                        cL[counter].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                                    }
+
+
+                                }
+                            }
                             break;
-                        default: cL = bouncing;
+                        default:
+                            {
+                                cL = bouncing;
+                                for (int counter = 0; counter < cL.Length; counter++)
+                                {
+
+
+                                    cL[counter].GetComponent<cloud>().act = !cL[counter].GetComponent<cloud>().act;
+                           
+                                        if (cL[counter].GetComponent<cloud>().act)
+                                        {
+                                            Debug.Log("Hi");
+                                            cL[counter].gameObject.GetComponent<BoxCollider2D>().GetComponent<PhysicsMaterial2D>().bounciness = 1;
+                                            cL[counter].gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                                            Debug.Log(cL[counter].gameObject.GetComponent<SpriteRenderer>().color);
+                                        }
+                                        else
+                                        {
+                                            cL[counter].gameObject.GetComponent<BoxCollider2D>().GetComponent<PhysicsMaterial2D>().bounciness = 0;
+                                            cL[counter].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                                        }
+
+                                    
+                                }
+                            }
                             break;
                     }
 
-                    for (int counter = 0; counter < cL.Length; counter++)
-                    {
-                        cL[counter].GetComponent<cloud>().act = !cL[counter].GetComponent<cloud>().act;
-                    }
+                   
                 }
                 break;
             case "bounce":
@@ -120,9 +228,10 @@ public class cloud : MonoBehaviour
                     break;
                 case "vanish":
                     { 
-                    float t = parameters[0];
+                        float t = parameters[0];
+                        float tF = parameters[1];
                         float v = parameters[2];
-                        if (t > 100)
+                        if (t > tF)
                         {
                             if (v < 1)
                             {
