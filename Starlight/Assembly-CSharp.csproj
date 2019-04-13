@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\cameraScript.cs" />
     <Compile Include="Assets\Scripts\CatController.cs" />
     <Compile Include="Assets\Scripts\cloud.cs" />
     <Compile Include="Assets\Scripts\FishController.cs" />

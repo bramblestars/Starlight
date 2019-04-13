@@ -83,9 +83,10 @@ public class CatController : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        Vector3 theScale = transform.localScale;
+        this.GetComponent<SpriteRenderer>().flipX=!this.GetComponent<SpriteRenderer>().flipX;
+        /***Vector3 theScale = transform.localScale;
         theScale.x *= -1;
-        transform.localScale = theScale;
+        transform.localScale = theScale;*/
     }
     //set all platforms to Ground tag; if Ground tag doesn't exist, add in Ground tag
     private void OnCollisionStay2D(Collision2D collision)
@@ -116,11 +117,12 @@ public class CatController : MonoBehaviour
             else if (cloudScript.type == "bounce")
             { 
 
-            /*if (cloudScript.act)
+            if (cloudScript.act)
                 {
-                    rb2d.AddForce(new Vector2(0f, jumpForce));
-                    Collider.gameObject.GetComponent<BoxCollider2D>().GetComponent<PhysicsMaterial2D>().bounciness = 1;
-                }*/
+                    Debug.Log("BounceON");
+                   rb2d.AddForce(new Vector2(0f, 100f*Mathf.Abs(rb2d.velocity.y)));
+                    //Collider.gameObject.GetComponent<BoxCollider2D>().GetComponent<PhysicsMaterial2D>().bounciness = 1;
+                }
             }
         }
         if (Collider.gameObject.name.Contains("cloud"))
