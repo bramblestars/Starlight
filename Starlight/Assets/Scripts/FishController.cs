@@ -29,7 +29,7 @@ public class FishController : MonoBehaviour
         rb2d.freezeRotation = true;
         inputController = "fishHorizontal";
    
-        groundTag = "GroundFish";
+        groundTag = "Ground";
     }
 
     // Update is called once per frame

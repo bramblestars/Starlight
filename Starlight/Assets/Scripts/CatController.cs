@@ -59,11 +59,11 @@ public class CatController : MonoBehaviour
 
         if (rb2d.velocity.y < 0)
         {
-            Physics2D.gravity = new Vector2(0, -11.8F);
+            Physics2D.gravity = new Vector2(0, -25F);
         }
         else
         {
-            Physics2D.gravity = new Vector2(0, -8F);
+            Physics2D.gravity = new Vector2(0, -10F);
         
         }
         if (h > 0 && !facingRight)
@@ -123,21 +123,35 @@ public class CatController : MonoBehaviour
                 }*/
             }
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D Collider)
-    {
-        Debug.Log("In");
         if (Collider.gameObject.name.Contains("cloud"))
         {
-            transform.parent = Collider.transform;
+            if (Collider.gameObject.GetComponent<cloud>().type.Contains("moving"))
+            {
+                Debug.Log("Move");
+                transform.parent = Collider.transform;
+            }
         }
     }
+
+    /*private void OnTriggerEnter2D(Collider2D Collider)
+    {
+       
+        if (Collider.gameObject.name.Contains("cloud"))
+        {
+            if (Collider.gameObject.GetComponent<cloud>().type.Contains("moving"))
+            {
+                Debug.Log("Move");
+                transform.parent = Collider.transform;
+            }
+        }
+
+    }*/
 
     private void OnTriggerExit2D(Collider2D Collider)
     {
         if (Collider.gameObject.name.Contains("cloud"))
         {
+            Debug.Log("Out");
             transform.parent = null;
 
         }

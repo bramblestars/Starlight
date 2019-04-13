@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6246658748819260316}
   - component: {fileID: 2223245843134794502}
   - component: {fileID: 8805392543326723236}
+  - component: {fileID: 4604919439116755128}
   m_Layer: 0
   m_Name: cloudVanish
   m_TagString: Ground
@@ -92,7 +93,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 0c39038c30c3d4e0f98f1a56fc6c9866, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.035435915, y: 0.030373573}
   m_SpriteTilingProperty:
@@ -133,3 +134,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4860137, y: 0.6763859}
   m_EdgeRadius: 0
+--- !u!251 &4604919439116755128
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7074982663621337522}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 150
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

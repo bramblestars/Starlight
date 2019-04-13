@@ -5,11 +5,11 @@ using UnityEngine;
 public class Stars : MonoBehaviour
 {
 
-    private StarText starCounter;
+    //private StarText starCounter;
 
     void Awake()
     {
-        starCount = GameObject.Find("CoinText").getComponent<StarText>
+       // starCount = GameObject.Find("CoinText").getComponent<StarText>
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -18,7 +18,7 @@ public class Stars : MonoBehaviour
             print("You picked up a star!");
 
         //Update GUI
-        starCounter.starCount++;
+        //starCounter.starCount++;
 
         gameObject.SetActive(false);
         

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8131153990510313453}
   - component: {fileID: 4742169179840950427}
   - component: {fileID: 4100601285133693251}
+  - component: {fileID: 7880616775785722846}
   m_Layer: 0
   m_Name: cloudBounce
   m_TagString: Untagged
@@ -93,7 +94,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 2deaf3c647823410c87ed155188792aa, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.04896325, y: 0.0112994015}
   m_SpriteTilingProperty:
@@ -158,3 +159,22 @@ MonoBehaviour:
   vanishing: []
   bouncing: []
   act: 0
+--- !u!251 &7880616775785722846
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6465073500709953709}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
